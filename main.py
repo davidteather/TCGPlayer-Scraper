@@ -33,28 +33,28 @@ rowCount = 2
 def scrapeURL(url):
     global rowCount
     driver.get(url)
-    time.sleep(3)
+    time.sleep(15)
 
     driver.execute_script("scrollTo(0, 1500);")
-    time.sleep(2)
+    time.sleep(15)
 
     driver.find_element_by_xpath("//button[@data-toggle='show-filters']").click()
-    time.sleep(2)
+    time.sleep(15)
 
     for selection in driver.find_elements_by_xpath("//li[@class='filter-facet__item ']"):
         if selection.text.strip() == "Listings With Photos":
             selection.click()
 
-    time.sleep(5)
+    time.sleep(15)
 
     driver.find_element_by_xpath("//button[@data-toggle='hide-filters']").click()
 
-    time.sleep(2)
+    time.sleep(15)
 
     pageNum = 1
     contin = True
     while contin:
-        time.sleep(5)
+        time.sleep(30)
         loops = 0
         for listing in driver.find_elements_by_xpath("//section[@class='product-listings']/div"):
             photoUrl = driver.find_elements_by_xpath("//section[@class='product-listings']/div/a/figure/img")[loops].get_attribute("src")
